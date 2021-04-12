@@ -1,0 +1,54 @@
+/* Carousel styling */
+#introCarousel,
+.carousel-inner,
+.carousel-item,
+.carousel-item.active {
+  height: 100vh;
+}
+
+.carousel-item:nth-child(1) {
+  background-image: url(pictures/home1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-item:nth-child(2) {
+  background-image: url(pictures/home2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.carousel-item:nth-child(3) {
+  background-image: url(pictures/home3.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #introCarousel {
+    margin-top: -58.59px;
+  }
+
+  #introCarousel,
+  .carousel-inner,
+  .carousel-item,
+  .carousel-item.active {
+    height: 50vh;
+  }
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+}
+.image {
+  width: 250px;
+  height: 260px;
+}
+.image2 {
+  width: 350px;
+  height: 350px;
+}
