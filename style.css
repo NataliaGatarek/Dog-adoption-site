@@ -44,11 +44,14 @@
 .navbar .nav-link {
   color: #fff !important;
 }
-.image {
-  width: 250px;
-  height: 260px;
+
+.more {
+  display: none;
 }
-.image2 {
-  width: 350px;
+.less {
+  display: none;
+}
+.img2 {
   height: 350px;
+  width: 350px;
 }
