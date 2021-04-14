@@ -14,8 +14,6 @@ for (const thing of less) {
     })
 }
 
-// show more or less function 
-
 function showHide(event) {
     console.log(event.target.closest('div').id)
     const num =event.target.closest('div').id
