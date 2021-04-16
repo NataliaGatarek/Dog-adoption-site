@@ -83,10 +83,10 @@ if (button) {
 // showHideTwo(event);
 //});
 
-console.log(data);
-const ul = document.getElementById("my-list");
-data.forEach((id) => {
-  const li = document.createElement("li");
-  li.innerHTML = id.name;
-  ul.appendChild(li);
-});
+//console.log(data);
+//const ul = document.getElementById("my-list");
+//data.forEach((id) => {
+  //const li = document.createElement("li");
+  //li.innerHTML = id.name;
+  //ul.appendChild(li);
+//});
