@@ -4,26 +4,19 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="with=device-with, inicial-scale=1.0" />
-    <title>pageOne</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
     <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" />
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-    <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.3.0/mdb.min.css" rel="stylesheet" />
 </head>
 <body>
 <header>
-    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark d-none d-lg-block" style="z-index: 2000;">
         <div class="container-fluid">
-            <!-- Navbar brand -->
-            <!-- <a class="navbar-brand nav-link" target="_blank" href="https://mdbootstrap.com/docs/standard/">
-                    <strong>MDB</strong>-->
             </a>
             <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
                 aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,10 +25,10 @@
             <div class="collapse navbar-collapse" id="navbarExample01">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" aria-current="page" href="#intro">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" rel="nofollow" target="_blank">Choose breed for you</a>
+                        <a class="nav-link" href="pageOne.html" rel="nofollow" target="_blank">Choose breed for you</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" target="_blank">
@@ -125,65 +118,96 @@
     </div>
     <!-- Carousel wrapper -->
 </header>
-<!--Main Navigation-->
-
-<!--Main layout-->
 <main class="mt-5">
-    <div class="container">
-        <!--Section: Content-->
-        <section>
+    
+<div class="accordion accOne" id="accordionExample">
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-mdb-toggle="collapse" data-mdb-target="#collapseOne"
+                aria-expanded="true" aria-controls="collapseOne">
+                Accordion Item #1
+            </button>
+        </h2>
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+            data-mdb-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>This is the first item's accordion body.</strong> It is hidden by default,
+                until the collapse plugin adds the appropriate classes that we use to style each
+                element. These classes control the overall appearance, as well as the showing and
+                hiding via CSS transitions. You can modify any of this with custom CSS or
+                overriding our default variables. It's also worth noting that just about any HTML
+                can go within the <strong>.accordion-body</strong>, though the transition does limit
+                overflow.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Accordion Item #2
+            </button>
+        </h2>
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+            data-mdb-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>This is the second item's accordion body.</strong> It is hidden by
+                default, until the collapse plugin adds the appropriate classes that we use to
+                style each element. These classes control the overall appearance, as well as the
+                showing and hiding via CSS transitions. You can modify any of this with custom CSS
+                or overriding our default variables. It's also worth noting that just about any
+                HTML can go within the <strong>.accordion-body</strong>, though the transition does
+                limit overflow.
+            </div>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-mdb-toggle="collapse"
+                data-mdb-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                Accordion Item #3
+            </button>
+        </h2>
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+            data-mdb-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>This is the third item's accordion body.</strong> It is hidden by default,
+                until the collapse plugin adds the appropriate classes that we use to style each
+                element. These classes control the overall appearance, as well as the showing and
+                hiding via CSS transitions. You can modify any of this with custom CSS or
+                overriding our default variables. It's also worth noting that just about any HTML
+                can go within the <strong>.accordion-body</strong>, though the transition does limit
+                overflow.
+            </div>
+        </div>
+    </div>
+</div>     
+    </div>
+    <section class="text-center accTwo">
+        <div class="container">
             <div class="row">
-                <div class="col-md-6 gx-5 mb-4">
-                    <h4><strong>Before adoption</strong></h4>
-                    <p class="text-muted">So you decided to adop a dog, that is briliant. But before it, you should research the breeds to be fully aware what is the heritage of your dog.Every singe dog is a mix of two or more breed of dogs.Scientists used genetic testing in over 900 shelter dogs to identify breed heritage in the largest study of its kind.
-                    The researchers found widespread genetic diversity: 125 breeds in the sample and an average of three breed matches per
-                    dog. The accuracy of shelter staff in identifying more than one breed in the dog's heritage based just on physical
-                    appearance was only 10 percent. How breed labels can impact shelter dogs is discussed.</p>
+                <div class="col-md">
+                    <img id="one" src="pictures/gd.jpg" class="img-fluid img-thumbnail shadow-2-strong" />
                 </div>
-
-                <div class="col-md-6 gx-5 mb-4">
-                    <h4><strong>Use our search to find out more about dog breeds</strong></h4>
-                    <p class="text-muted">
-                        The first step to being a responsible dog owner begins before you even bring home a dog. Thoughtfully and seriously
-                        assess your needs before making a decision, and you'll live long, happy lives together.
-                    </p>
+                <div class="col-md">
+                    <img id="two" src="pictures/gd.jpg" class="img-fluid img-thumbnail shadow-2-strong" />
+                </div>
+                <div class="col-md">
+                    <img id="tree" src="pictures/gd.jpg" class="img-fluid img-thumbnail shadow-2-strong" />
                 </div>
             </div>
+        </div>
         </section>
-        <!--Section: Content-->
-
-        <hr class="my-5" />
-<table class="table table-striped" id="newTable">
-    <thead>
-        <tr>
-            <th scope="col">Breeds name</th>
-            <th scope="col">Breeds group</th>
-            <th scope="col">Life span</th>
-            <th scope="col">Temperament</th>
-        </tr>
-    </thead>
-    <tbody id="tbodyOne">
-    </tbody>
-</table>
-        
-        <hr class="my-5" />
-
-       
-    </div>
-    <ul id="my-list"></ul>
-
-    
 </main>
-
-
+<footer>
 <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
     © 2021 Copyright:
     <a class="text-dark" href="https://mdbootstrap.com/">Coopyright Natalia Gatarek</a>
 </div>
 
 </footer>
-        <script src="table.js"></script>
-        <script src="new.js"></script>
+    <script src="new.js"></script>
+    <script scr="pageTwo.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
         crossorigin="anonymous"></script>
