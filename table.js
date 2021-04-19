@@ -54,8 +54,16 @@ fetch("https://api.thedogapi.com/v1/breeds?x-api-key=41fbcc65-cb08-4b79-91e8-c49
   //  });
 //}
 
-    
-    
-   
-    
-    
+const checkboxElems = document.querySelectorAll("input[type='checkbox']");
+checkboxElems.addEventListener("change", function() {
+    if(this.checked) {
+        // Checkbox is checked..
+    } else {
+        // Checkbox is not checked..
+    }
+});
+console.log(checkboxElems);
+
+//const checkboxElems = document.querySelectorAll("input[type='checkbox']").forEach((checkboxElems) => {
+ // checkboxElems.addEventListener("change", function ())
+//});
