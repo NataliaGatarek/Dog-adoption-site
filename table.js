@@ -5,16 +5,6 @@ fetch("https://api.thedogapi.com/v1/breeds?x-api-key=41fbcc65-cb08-4b79-91e8-c49
         return response.json();
     }) 
     .then((data) => {
-        //if (data.length > 0) {
-        //  let temp = "";
-        //  data.forEach((post) => {
-         //   temp += "<tr>";
-          //  temp += "<td>" + post.name + "</td>";
-         //   temp += "<td>" + post.breed_group + "</td>";
-         //   temp += "<td>" + post.life_span + "</td>";
-         //   temp += "<td>" + post.temperament + "</td></tr>";
-        //  });
-         //   document.getElementById('tbodyOne').innerHTML = temp;
       addEvents(data);
       displayData(data);
       createSelectOptions(data);
@@ -58,7 +48,7 @@ const filterData = (data) => {
       if (checkboxElms.includes(data.breed_group)) {
         filteredData.push(data);
       }
-    });
+   });
     displayData(filteredData);
   }
 };
