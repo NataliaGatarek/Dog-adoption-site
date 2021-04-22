@@ -69,9 +69,8 @@ const filterData = (data) => {
     });
   }
   //both combined
-  else {
-    data.forEach((oneData) => {
-    if (selectElms == oneData.life_span && checkboxElms.includes(oneData.breed_group)) { 
+  else if (selectElms == oneData.life_span && checkboxElms.includes(oneData.breed_group)) {
+    data.forEach((oneData) => { 
     filteredData.push(oneData);
     }
      })
