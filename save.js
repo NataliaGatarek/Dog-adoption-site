@@ -86,3 +86,72 @@ const filterData = (data) => {
   //  displayData(filteredData);
  // }
   //nothing
+
+const displayData = (data) => {
+  if (data.length > 0) {
+    let temp = "";
+    data.forEach((post) => {
+  temp += "<tr>";
+  temp += `<td>${post.name}</td>`
+  temp +=  `<td>${post.breed_group}</td>`
+  temp +=  `<td>${post.life_span}</td>`
+  temp +=  `<td>${post.temperament}</td></tr>`;
+    });
+  }
+}
+//const displayData = (data) => {
+//  if (data.length > 0) {
+ //   let temp = "";
+ //   data.forEach((post) => {
+  //    temp += "<tr>";
+  //    temp += "<td>" + post.name + "</td>";
+  //    temp += "<td>" + post.breed_group + "</td>";
+   //   temp += "<td>" + post.life_span + "</td>";
+   //   temp += "<td>" + post.temperament + "</td></tr>";
+  //  }
+
+  //both combined
+  //else {
+  //  data.forEach((oneData) => {
+  //  if (selectElms == oneData.life_span && checkboxElms.includes(oneData.breed_group)) { 
+   // filteredData.push(oneData);
+  //  }
+   //  })
+  //}
+ // displayData(filteredData);
+ // console.log(filteredData);
+//};
+// Get the <span> element that closes the modal
+// let span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+//let span = document.getElementsByClassName("close");
+//for(let i=0;i<span.length;i++){
+ //   span[i].onclick = function() {
+ //      modal[i].style.display = "none";
+ //   }
+ //}
+ // Get the <span> element that closes the modal
+//let span = document.getElementsByClassName("closeTwo")[0];
+
+// When the user clicks on <span> (x), close the modal
+//span.onclick = function() {
+//  modal.style.display = "none";
+//}
+
+
+//let span = document.getElementsByClassName("close closeOne closeTwo");
+//span.onclick = function() {
+//modal.style.display = "none";
+//}
+
+//const span = document.querySelectorAll('.close');
+//for (const close of span) {
+ //   close.addEventListener('onclick', function () {
+ //   modal.style.display = "none";
+ //   })
+//}

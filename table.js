@@ -17,11 +17,11 @@ const displayData = (data) => {
   if (data.length > 0) {
     let temp = "";
     data.forEach((post) => {
-      temp += "<tr>";
-      temp += "<td>" + post.name + "</td>";
-      temp += "<td>" + post.breed_group + "</td>";
-      temp += "<td>" + post.life_span + "</td>";
-      temp += "<td>" + post.temperament + "</td></tr>";
+  temp += "<tr>";
+  temp += `<td>${post.name}</td>`
+  temp +=  `<td>${post.breed_group}</td>`
+  temp +=  `<td>${post.life_span}</td>`
+  temp +=  `<td>${post.temperament}</td></tr>`;
     });
     document.getElementById("tbodyOne").innerHTML = "";
     document.getElementById('tbodyOne').innerHTML = temp;
@@ -69,13 +69,20 @@ const filterData = (data) => {
     });
   }
   //both combined
-  else if (selectElms == oneData.life_span && checkboxElms.includes(oneData.breed_group)) {
-    data.forEach((oneData) => { 
+  else {
+  data.forEach((oneData) => {
+   if (selectElms == oneData.life_span && checkboxElms.includes(oneData.breed_group)) { 
     filteredData.push(oneData);
     }
      })
   }
-  displayData(filteredData);
+  //alert if match is not found
+  if (filteredData.length !== 0) {
+     displayData(filteredData);
+  }
+  else {
+    alert("not found")
+  }
   console.log(filteredData);
 };
 //creation of the select menu
@@ -97,4 +104,12 @@ const createSelectOptions = (data) => {
     select.appendChild(option);
   });
 };
- 
+ mdb.Alert.getInstance(document.getElementById("alertExample")).update({
+  position: "top-right",
+  delay: 2000,
+  autohide: false,
+  width: "600px",
+  offset: 20,
+  stacking: true,
+  appendToBody: true,
+});
