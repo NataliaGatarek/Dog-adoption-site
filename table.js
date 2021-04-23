@@ -7,7 +7,9 @@ fetch("https://api.thedogapi.com/v1/breeds?x-api-key=41fbcc65-cb08-4b79-91e8-c49
     .then((data) => {
       addEvents(data);
       displayData(data);
-      createSelectOptions(data);
+      //createSelectOptions(data);
+      createOptions(data);
+      findSpan(data);
     })
     .catch((error) => {
         console.log(error);
@@ -15,32 +17,32 @@ fetch("https://api.thedogapi.com/v1/breeds?x-api-key=41fbcc65-cb08-4b79-91e8-c49
 //table
 const displayData = (data) => {
   if (data.length > 0) {
-    let temp = "";
-    data.forEach((post) => {
+  let temp = "";
+  data.forEach((post) => {
   temp += "<tr>";
   temp += `<td>${post.name}</td>`
-  temp +=  `<td>${post.breed_group}</td>`
-  temp +=  `<td>${post.life_span}</td>`
-  temp +=  `<td>${post.temperament}</td></tr>`;
+  temp += `<td>${post.breed_group}</td>`
+  temp += `<td>${post.life_span}</td>`
+  temp += `<td>${post.temperament}</td></tr>`;
     });
     document.getElementById("tbodyOne").innerHTML = "";
     document.getElementById('tbodyOne').innerHTML = temp;
   }
 };
 //adding events, two event listners under one function 
-const addEvents = (data) => {
+const addEvents = (OneData) => {
   let checkboxElms = Array.from(document.querySelectorAll("input[type=checkbox]"));
   checkboxElms.forEach((checkbox) => {
     checkbox.addEventListener("change", () => {
-      filterData(data);
+    filterData(OneData);
     });
   });
   document.getElementById("selectSpan").addEventListener("change", () => {
-    filterData(data);
+    filterData(OneData);
   });
 };
 //filetring and displaying data
-const filterData = (data) => {
+const filterData = (OneData) => {
   let checkboxElms = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map((checkbox) => {
     return checkbox.value
   });
@@ -51,65 +53,57 @@ const filterData = (data) => {
   let filteredData = []
   //if nothing is choosen, than display data
   if (checkboxElms.length === 0 && selectElms === "all") {
-    displayData(oneData);
+    //this condition needs to be, so the filteredData is never empty
+    filteredData = OneData
   //if checkbox is choosen than display breeds
   } else if (checkboxElms.length !== 0 && selectElms == "all") {
-    data.forEach((oneData) => {
-      if (checkboxElms.includes(oneData.breed_group)) {
-        filteredData.push(oneData);
+    OneData.forEach((OneData) => {
+      if (checkboxElms.includes(OneData.breed_group)) {
+        filteredData.push(OneData);
       }
     });
   }
   //if select is choosen than display life span (selectElms is not an array, so do not use includes method!)
   else if (checkboxElms.length === 0 && selectElms !== "all") {
-    data.forEach((oneData) => {
-      if (selectElms == oneData.life_span) {
-        filteredData.push(oneData);
+    OneData.forEach((OneData) => {
+      if (selectElms == OneData.life_span) {
+        filteredData.push(OneData);
       }
     });
   }
   //both combined
   else {
-  data.forEach((oneData) => {
-   if (selectElms == oneData.life_span && checkboxElms.includes(oneData.breed_group)) { 
-    filteredData.push(oneData);
-    }
-     })
-  }
+    OneData.forEach((OneData) => {
+      if (selectElms == OneData.life_span && checkboxElms.includes(OneData.breed_group)) {
+        filteredData.push(OneData);
+      }
+    });
+  };
   //alert if match is not found
   if (filteredData.length !== 0) {
-     displayData(filteredData);
+  displayData(filteredData);
   }
   else {
-    alert("not found")
-  }
+ swal("Sorry!", "No matches found!", "info");
+  };
   console.log(filteredData);
 };
-//creation of the select menu
-const createSelectOptions = (data) => {
-  let span = data.map((data) => {
-    return data.life_span
+//filtering double results from life span
+const findSpan = (OneData) => {
+  let span = OneData.map((OneData) => {
+    return OneData.life_span
   });
-  let newSpan = [];
-  span.forEach((life_span) => {
-    if (!newSpan.includes(life_span)) {
-      newSpan.push(life_span);
-    }
+    let newSpan = span.filter((life_span, index) => {
+    return span.indexOf(life_span) === index;
   });
-  let select = document.getElementById("selectSpan");
-  newSpan.forEach((span) => {
-    let option = document.createElement("option");
-    option.innerHTML = span;
-    option.setAttribute("value", span);
-    select.appendChild(option);
-  });
+  createOptions(newSpan);
 };
- mdb.Alert.getInstance(document.getElementById("alertExample")).update({
-  position: "top-right",
-  delay: 2000,
-  autohide: false,
-  width: "600px",
-  offset: 20,
-  stacking: true,
-  appendToBody: true,
-});
+//select option
+const createOptions = (span) => {
+  let select = document.getElementById("selectSpan");
+  let temporary = "<option value='all'>All</option>";
+  span.forEach((life_span, index) => {
+  temporary += `<option id='${index}'value='${life_span}'>${life_span}</option>`;
+  });
+  select.innerHTML = temporary;
+};

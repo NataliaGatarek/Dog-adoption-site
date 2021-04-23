@@ -155,3 +155,70 @@ const displayData = (data) => {
  //   modal.style.display = "none";
  //   })
 //}
+
+//creation of the select menu
+const createSelectOptions = (data) => {
+  let span = data.map((data) => {
+    return data.life_span
+  });
+  let newSpan = [];
+  span.forEach((life_span) => {
+    if (!newSpan.includes(life_span)) {
+      newSpan.push(life_span);
+    }
+  });
+  let select = document.getElementById("selectSpan");
+  newSpan.forEach((span) => {
+    let option = document.createElement("option");
+    option.innerHTML = span;
+    option.setAttribute("value", span);
+    select.appendChild(option);
+  });
+};
+//filetring and displaying data
+const filterData = (data) => {
+  let checkboxElms = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map((checkbox) => {
+    return checkbox.value
+  });
+  let selectElms = document.getElementById("selectSpan").value;
+  console.log(selectElms);
+  console.log(checkboxElms);
+  //filtering data//
+  let filteredData = []
+  //if nothing is choosen, than display data
+  if (checkboxElms.length === 0 && selectElms === "all") {
+    displayData(oneData);
+  //if checkbox is choosen than display breeds
+  } else if (checkboxElms.length !== 0 && selectElms == "all") {
+    data.forEach((oneData) => {
+      if (checkboxElms.includes(oneData.breed_group)) {
+        filteredData.push(oneData);
+      }
+    });
+  }
+  //if select is choosen than display life span (selectElms is not an array, so do not use includes method!)
+  else if (checkboxElms.length === 0 && selectElms !== "all") {
+    data.forEach((oneData) => {
+      if (selectElms == oneData.life_span) {
+        filteredData.push(oneData);
+      }
+    });
+  }
+  //both combined
+  else {
+  data.forEach((oneData) => {
+   if (selectElms == oneData.life_span && checkboxElms.includes(oneData.breed_group)) { 
+    filteredData.push(oneData);
+    }
+     })
+  }
+  //alert if match is not found
+  if (filteredData.length !== 0) {
+    displayData(filteredData);
+    findSpan(filteredData);
+  }
+  else {
+    alert("not found")
+  }
+  console.log(filteredData);
+};
