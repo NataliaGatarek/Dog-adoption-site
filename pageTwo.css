@@ -1,17 +1,31 @@
-.card {
+.cardOne {
   width: 30%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 4px 4px 4px 4px;
 }
 .containerFlex {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
 }
 .header {
   height: 30%;
   background: red;
   color: white;
   text-align: center;
+}
+.overflow {
+  padding: 4px;
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

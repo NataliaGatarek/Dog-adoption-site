@@ -40,9 +40,9 @@
   }
 }
 
-.navbar .nav-link {
+/* .navbar .nav-link {
   color: #fff !important;
-}
+}*/
 
 .more {
   display: none;
@@ -75,4 +75,10 @@
   margin-left: 100px;
   margin-top: 5px;
   margin-bottom: 5px;
+}
+.overflow {
+  padding: 4px;
+  height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
 }

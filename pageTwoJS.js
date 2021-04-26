@@ -14,9 +14,9 @@ fetch("https://api.thedogapi.com/v1/breeds/search?x-api-key=41fbcc65-cb08-4b79-9
 const displayTerrier = (data) => {
    data.forEach (post => {
        let card = document.createElement("div");
-       card.classList.add("card");
+       card.classList.add("cardOne");
 
-       let name = document.createElement("h5");
+       let name = document.createElement("h6");
        name.innerHTML = post.name;
        card.appendChild(name);
        

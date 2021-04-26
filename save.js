@@ -222,3 +222,20 @@ const filterData = (data) => {
   }
   console.log(filteredData);
 };
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="z-index: 2000;" id="wrapper">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-mdb-toggle="dropdown" aria-expanded="false">
+                    Menu
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" href="pageOne.html">Choose breed for you</a></li>
+                    <li><a class="dropdown-item" href="pageTwo.html">Dog's life stages and more</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
