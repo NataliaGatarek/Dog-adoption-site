@@ -11,17 +11,25 @@ fetch("https://api.thedogapi.com/v1/breeds/search?x-api-key=41fbcc65-cb08-4b79-9
         console.log(error);
     })
 
-const gettingImage = (myImg) => {
+const gettingImage = (myImg, card) => {
     fetch(`https://api.thedogapi.com/v1/images/${myImg}?x-api-key=41fbcc65-cb08-4b79-91e8-c497c6dba122`)
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             console.log(data)
+            createImg(data, card)
         })
         .catch((error) => {
             console.log(error);
         });
+}
+const createImg = (data, card) => {
+    console.log(data)
+        let image = document.createElement("img");
+        image.classList.add("ImageCard");
+        image.setAttribute("src", data.url)
+        card.appendChild(image);
 }
 const displayTerrier = (data) => {
    data.forEach (post => {
@@ -40,22 +48,26 @@ const displayTerrier = (data) => {
        bredFor.innerHTML = post.bred_for
        card.appendChild(bredFor);
 
-       let ImageCard = document.createElement("img");
-       ImageCard.classList.add("ImageCard");
-       ImageCard.scr = post.reference_image_id;
-       card.appendChild(ImageCard);
+       //let image = document.createElement("img");
+       //image.src = `${myImage}`;
+       //let ImageCard = document.createElement("img");
+       //ImageCard.setAttribute("src", post.url )
+       //image.classList.add("ImageCard");
+       //card.appendChild(image);
 
        let buttonImg = document.createElement("button");
        buttonImg.innerHTML = "show button";
        buttonImg.setAttribute("id", post.reference_image_id);
        buttonImg.addEventListener("click", function (event) {
-       gettingImage(event.target.id)
-           console.log(event)
-       }
-       )
+           gettingImage(event.target.id, card)
+
+        //console.log(event)
+       })
        card.appendChild(buttonImg);
 
        let container = document.querySelector("#container");
        container.appendChild(card);
    });
 }
+
+         
