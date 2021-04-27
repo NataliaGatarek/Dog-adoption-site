@@ -29,3 +29,7 @@
   overflow-x: hidden;
   overflow-y: auto;
 }
+.ImageCard {
+  height: 100px;
+  width: 50px;
+}

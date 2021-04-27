@@ -11,6 +11,41 @@ fetch("https://api.thedogapi.com/v1/breeds/search?x-api-key=41fbcc65-cb08-4b79-9
         console.log(error);
     })
 
+  
+ //const gettingImage = document.getElementById("imageButton");
+ //gettingImage.addEventListener("click", function () {
+   // if () {
+   //  fetch(`https://api.thedogapi.com/v1/images/{image_id}?x-api-key=41fbcc65-cb08-4b79-91e8-c497c6dba122${myImg}`)
+   //     .then((response) => {
+    //        console.log(response);
+     //       return response.json();
+    //    })
+     //   .then((data) => {
+     //       console.log(data)
+     //       showImagesInHtml(data)
+     //       showImage(data)
+     ///   })
+      //  .catch((error) => {
+      //      console.log(error);
+      //  });
+    // })
+//}
+const gettingImage = (myImg) => {
+    fetch(`https://api.thedogapi.com/v1/images/${myImg}?x-api-key=41fbcc65-cb08-4b79-91e8-c497c6dba122`)
+        .then((response) => {
+            //        console.log(response);
+            return response.json();
+        })
+        .then((data) => {
+            console.log(data)
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+}
+
+
+
 const displayTerrier = (data) => {
    data.forEach (post => {
        let card = document.createElement("div");
@@ -28,7 +63,24 @@ const displayTerrier = (data) => {
        bredFor.innerHTML = post.bred_for
        card.appendChild(bredFor);
 
+       let ImageCard = document.createElement("img");
+       ImageCard.classList.add("ImageCard");
+       ImageCard.scr = post.reference_image_id;
+       card.appendChild(ImageCard);
+
+       let buttonImg = document.createElement("button");
+       buttonImg.innerHTML = "show button";
+       buttonImg.setAttribute("id", post.reference_image_id);
+       buttonImg.addEventListener("click", function (event) {
+       gettingImage(event.target.id)
+           console.log(event)
+       }
+       )
+       card.appendChild(buttonImg);
+
        let container = document.querySelector("#container");
        container.appendChild(card);
+
    });
 }
+
