@@ -39,7 +39,11 @@
     height: 50vh;
   }
 }
-
+@media (max-width: 992px) {
+  .navi {
+    background-color: black;
+  }
+}
 /* .navbar .nav-link {
   color: #fff !important;
 }*/
