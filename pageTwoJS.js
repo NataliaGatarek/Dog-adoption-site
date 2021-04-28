@@ -26,10 +26,18 @@ const gettingImage = (myImg, card) => {
 }
 const createImg = (data, card) => {
     console.log(data)
-        let image = document.createElement("img");
-        image.classList.add("ImageCard");
-        image.setAttribute("src", data.url)
-        card.appendChild(image);
+    let image = document.createElement("img");
+    image.classList.add("card-content");
+    image.setAttribute("src", data.url)
+    image.setAttribute("id", image)
+    let closedImg = document.createElement("SPAN");
+    closedImg.innerHTML = "&times;";
+    closedImg.addEventListener("click", function () {
+        image.classList.add("removed")
+        closedImg.classList.add("removed");
+    })
+    card.appendChild(closedImg);
+    card.appendChild(image);
 }
 const displayTerrier = (data) => {
    data.forEach (post => {
@@ -49,14 +57,29 @@ const displayTerrier = (data) => {
        card.appendChild(bredFor);
 
        let buttonImg = document.createElement("button");
-       buttonImg.innerHTML = "show button";
+       buttonImg.innerHTML = "dog's picture";
+       buttonImg.classList.add("btn-light")
        buttonImg.setAttribute("id", post.reference_image_id);
        buttonImg.addEventListener("click", function (event) {
            gettingImage(event.target.id, card)
+       })
         //console.log(event)
-       card.appendChild(buttonImg);
-
-       let container = document.querySelector("#container");
+      card.appendChild(buttonImg);
+      let container = document.querySelector("#container");
        container.appendChild(card);
    });
 }
+
+//const showHideTwoP = () => {
+//let image = document.getElementById("image");
+//let buttonImg = document.getElementById("post.reference_image_id")
+//if (buttonImg.classList.contains("card-card")) {
+//buttonImg.classList.add("removed");
+//} else {
+///  buttonImg.classList.remove("removed");
+//}
+//}
+ //buttonImg.classList.add("button-class");
+           //if (buttonImg.classList.contains("button-class")) {
+           //    buttonImg.classList.add("removed");
+           //} else { buttonImg.classList.remove("removed");}
