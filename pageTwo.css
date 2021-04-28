@@ -112,6 +112,7 @@
   display: flex;
   justify-content: space-around;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 @media only screen and (max-width: 700px) {
   .modal-content {
