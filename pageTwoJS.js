@@ -48,26 +48,15 @@ const displayTerrier = (data) => {
        bredFor.innerHTML = post.bred_for
        card.appendChild(bredFor);
 
-       //let image = document.createElement("img");
-       //image.src = `${myImage}`;
-       //let ImageCard = document.createElement("img");
-       //ImageCard.setAttribute("src", post.url )
-       //image.classList.add("ImageCard");
-       //card.appendChild(image);
-
        let buttonImg = document.createElement("button");
        buttonImg.innerHTML = "show button";
        buttonImg.setAttribute("id", post.reference_image_id);
        buttonImg.addEventListener("click", function (event) {
            gettingImage(event.target.id, card)
-
         //console.log(event)
-       })
        card.appendChild(buttonImg);
 
        let container = document.querySelector("#container");
        container.appendChild(card);
    });
 }
-
-         
