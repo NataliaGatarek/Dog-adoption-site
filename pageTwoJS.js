@@ -19,6 +19,7 @@ const gettingImage = (myImg, card) => {
         .then((data) => {
             console.log(data)
             createImg(data, card)
+            showHideTwoP(data, card)
         })
         .catch((error) => {
             console.log(error);
@@ -28,6 +29,7 @@ const createImg = (data, card) => {
     console.log(data)
     let image = document.createElement("img");
     image.classList.add("card-content");
+    image.classList.add("zoom");
     image.setAttribute("src", data.url)
     image.setAttribute("id", image)
     let closedImg = document.createElement("SPAN");
@@ -70,16 +72,14 @@ const displayTerrier = (data) => {
    });
 }
 
-//const showHideTwoP = () => {
-//let image = document.getElementById("image");
-//let buttonImg = document.getElementById("post.reference_image_id")
-//if (buttonImg.classList.contains("card-card")) {
-//buttonImg.classList.add("removed");
-//} else {
-///  buttonImg.classList.remove("removed");
-//}
-//}
- //buttonImg.classList.add("button-class");
-           //if (buttonImg.classList.contains("button-class")) {
-           //    buttonImg.classList.add("removed");
-           //} else { buttonImg.classList.remove("removed");}
+const showHideTwoP = (data, card) => {
+    console.log(data)
+    console.log(card)
+let image = document.getElementById("image");
+let buttonImg = document.getElementById("post.reference_image_id");
+if (!image.classList.contains("removed")) {
+buttonImg.classList.add("removed");
+} else {
+buttonImg.classList.remove("removed");
+}}
+ 

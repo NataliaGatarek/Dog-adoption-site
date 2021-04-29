@@ -132,3 +132,11 @@
 .show {
   display: block;
 }
+.zoom {
+  transition: transform 0.2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.2);
+}
