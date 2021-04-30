@@ -19,7 +19,6 @@ const gettingImage = (myImg, card) => {
         .then((data) => {
             console.log(data)
             createImg(data, card)
-            showHideTwoP(data, card)
         })
         .catch((error) => {
             console.log(error);
@@ -65,7 +64,6 @@ const displayTerrier = (data) => {
        buttonImg.addEventListener("click", function (event) {
            gettingImage(event.target.id, card)
        })
-        //console.log(event)
       card.appendChild(buttonImg);
       let container = document.querySelector("#container");
        container.appendChild(card);
