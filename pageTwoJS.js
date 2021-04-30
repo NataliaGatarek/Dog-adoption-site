@@ -11,21 +11,22 @@ fetch("https://api.thedogapi.com/v1/breeds/search?x-api-key=41fbcc65-cb08-4b79-9
         console.log(error);
     })
 
-const gettingImage = (myImg, card) => {
+const gettingImage = (myImg, card, buttonImg) => {
     fetch(`https://api.thedogapi.com/v1/images/${myImg}?x-api-key=41fbcc65-cb08-4b79-91e8-c497c6dba122`)
         .then((response) => {
             return response.json();
         })
         .then((data) => {
             console.log(data)
-            createImg(data, card)
+            createImg(data, card, buttonImg)
         })
         .catch((error) => {
             console.log(error);
         });
 }
-const createImg = (data, card) => {
+const createImg = (data, card, buttonImg) => {
     console.log(data)
+    buttonImg.style.visibility = "hidden";
     let image = document.createElement("img");
     image.classList.add("card-content");
     image.classList.add("zoom");
@@ -36,9 +37,20 @@ const createImg = (data, card) => {
     closedImg.addEventListener("click", function () {
         image.classList.add("removed")
         closedImg.classList.add("removed");
+        buttonImg.style.visibility="visible";
     })
-    card.appendChild(closedImg);
-    card.appendChild(image);
+//     if (closedImg.classList.contains("removed")) {
+//      console.log("hello")
+//    buttonImg.style.visibility="visible";
+// } else {
+//    buttonImg.style.visibility="hidden";
+//  }
+   // buttonImg = document.getElementById("post.reference_image_id");
+   // if (image.classList.contains("removed")) {
+   //     buttonImg.classList.add("show")
+   // } else {buttonImg.classList.add("removed")}
+   card.appendChild(closedImg);
+   card.appendChild(image);
 }
 const displayTerrier = (data) => {
    data.forEach (post => {
@@ -62,7 +74,7 @@ const displayTerrier = (data) => {
        buttonImg.classList.add("btn-light")
        buttonImg.setAttribute("id", post.reference_image_id);
        buttonImg.addEventListener("click", function (event) {
-           gettingImage(event.target.id, card)
+           gettingImage(event.target.id, card, buttonImg)
        })
       card.appendChild(buttonImg);
       let container = document.querySelector("#container");
@@ -70,14 +82,14 @@ const displayTerrier = (data) => {
    });
 }
 
-const showHideTwoP = (data, card) => {
-    console.log(data)
-    console.log(card)
-let image = document.getElementById("image");
-let buttonImg = document.getElementById("post.reference_image_id");
-if (!image.classList.contains("removed")) {
-buttonImg.classList.add("removed");
-} else {
-buttonImg.classList.remove("removed");
-}}
+//const showHideTwoP = (data, card) => {
+  //  console.log(data)
+    //console.log(card)
+//let image = document.getElementById("image");
+//let buttonImg = document.getElementById("post.reference_image_id");
+//if (!image.classList.contains("removed")) {
+//buttonImg.classList.add("removed");
+//} else {
+//buttonImg.classList.remove("removed");
+//}}
  
