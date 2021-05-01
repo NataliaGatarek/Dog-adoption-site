@@ -48,6 +48,6 @@ if (button) {
   button.addEventListener("click", function (event) {
  showHideTwo(event);
   });
-  }
+}
 
 

@@ -9,10 +9,12 @@ fetch("https://api.thedogapi.com/v1/breeds?x-api-key=41fbcc65-cb08-4b79-91e8-c49
       //createSelectOptions(data);
       createOptions(data);
       findSpan(data);
+
     })
     .catch((error) => {
         console.log(error);
     })
+  
 //table
 const displayData = (data) => {
   if (data.length > 0) {
@@ -106,3 +108,4 @@ const createOptions = (span) => {
   });
   select.innerHTML = temporary;
 };
+
