@@ -5,8 +5,6 @@ for (const dot of dots) {
         showHide(event);
   });  
 }
-
-
 const less = document.querySelectorAll('.less');
 for (const thing of less) {
     thing.addEventListener('click', function (event) {
@@ -49,5 +47,3 @@ if (button) {
  showHideTwo(event);
   });
 }
-
-
